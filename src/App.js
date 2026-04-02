@@ -1,4 +1,4 @@
-import logo from './logo.svg';
+
 import './App.css';
 import { useEffect, useState } from 'react';
 
@@ -6,11 +6,11 @@ function App() {
 
   const [name,setname] = useState("");
   const [email1,setemail1] = useState("");
-  const [edittext,setedittext] = useState("");
+  //const [edittext,setedittext] = useState("");
   const [editId,seteditId] = useState("");
   
   const [store,setstore] = useState([])
-  const [id1,setid1] = useState(0);
+  const [id1] = useState(0);
    const url = "https://jsonplaceholder.typicode.com/users";
    const getuser = async () => {
     try{
@@ -88,12 +88,12 @@ function App() {
 
     const deletfun =(id)=>{
       console.log("id",id)
-      const response = fetch(`${url}/${id}`,{
+      fetch(`${url}/${id}`,{
         method:'DELETE',
 
       })
     // const newuser = response.json();
-      setstore(store.filter(e=>e.id != id))
+      setstore(store.filter(e=>e.id !== id))
       setname("")
     }
 
